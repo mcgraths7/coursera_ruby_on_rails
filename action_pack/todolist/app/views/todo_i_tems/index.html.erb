@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Todo I Tems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Due date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_i_tems.each do |todo_i_tem| %>
+      <tr>
+        <td><%= todo_i_tem.due_date %></td>
+        <td><%= todo_i_tem.title %></td>
+        <td><%= todo_i_tem.description %></td>
+        <td><%= todo_i_tem.completed %></td>
+        <td><%= link_to 'Show', todo_i_tem %></td>
+        <td><%= link_to 'Edit', edit_todo_i_tem_path(todo_i_tem) %></td>
+        <td><%= link_to 'Destroy', todo_i_tem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todo i tem', new_todo_i_tem_path %>

@@ -18,6 +18,10 @@
   width: 300px;
 }
 
+.login {
+  float: right;
+}
+
 #notice {
   color: green;
 }

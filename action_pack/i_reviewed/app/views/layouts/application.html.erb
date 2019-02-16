@@ -6,11 +6,20 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body
+<body>
 
-<p id="notice"><%= notice %></p>
+  <% if logged_in? %>
+    <div class="login">
+      Logged in as <%= current_user.email %> |
+      <%= link_to 'Logout', logout_path, method: :delete %>
+    </div>
+  <% end %>
 
-<%= yield %>
+  <%  flash.each do |key, value| %>
+    <p id='<%= key %>'><%= value %></p>
+  <% end %>
+
+    <%= yield %>
 
 </body>
 </html>

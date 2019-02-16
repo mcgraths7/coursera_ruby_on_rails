@@ -12,3 +12,14 @@ e.notes.create!([
   { title: "How Eloquent!", content: "This is the most eloquent book I've ever read" },
   { title: "I see through the lies of the reviewer",
     content: "The guy above me is a liar. He's probably a jedi."}])
+
+Reviewer.destroy_all
+
+revs = Reviewer.create!([
+  { email: "steven@domain.com", password: "some_password" },
+  { email: "bigdumbidiot@eric.com", password: "hunter_2" }])
+
+Book.all.each do |book|
+  book.reviewer = revs.sample
+  book.save!
+end

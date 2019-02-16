@@ -2,8 +2,7 @@ class NotesController < ApplicationController
   before_action :set_book, only: [:create, :destroy]
 
   def create
-    @note = @book.notes(note_params)
-    if @note.save
+    if @book.notes.create(note_params)
       redirect_to @book, notice: "Note successfully created!"
     else
       redirect_to @book, alert: "Note was not created!"
